@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sa_invoice_first_stage
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20211110\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-29 01:39+0000\n"
+"PO-Revision-Date: 2021-11-29 01:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_sa_invoice_first_stage
+msgid ""
+"Meet the first staget requirement for the Saudi Arabia Tax Invoice and "
+"Simple Invoice"
+msgstr "تطبيق متطلبات المرحلة الأولى للفاتورة الضريبية والفاتورة المبسطة في المملكة العربية السعودية"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_sa_invoice_first_stage
+msgid "Tax Invoice First Stage"
+msgstr "الفاتورة الضريبية المرحلة الاولى"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
+msgid "Cancelled Tax Invoice"
+msgstr "فاتورة ضريبية ملغية"
+
+#. module: sa_invoice_first_stage
+#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#, python-format
+msgid "Company / Vendor Name"
+msgstr "إسم المورد \\ الشركة"
+
+#. module: sa_invoice_first_stage
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_bank_statement_line__company_vat
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_move__company_vat
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_payment__company_vat
+msgid "Company / Vendor Vat"
+msgstr "إسم المورد \\ الشركة"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
+msgid "Credit Note"
+msgstr "إشعار دائن"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
+msgid "Draft Tax Invoice"
+msgstr "مسودة فاتورة ضريبية"
+
+#. module: sa_invoice_first_stage
+#: model:ir.model,name:sa_invoice_first_stage.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: sa_invoice_first_stage
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_bank_statement_line__qr_code_image
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_move__qr_code_image
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_payment__qr_code_image
+msgid "QRCode Image"
+msgstr "رمز الاستجابة السريعة"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
+msgid "Tax Invoice"
+msgstr "فاتورة ضريبية"
+
+#. module: sa_invoice_first_stage
+#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#, python-format
+msgid "This Record Can't Be Modified"
+msgstr "عفواً لا يمكنك تعديل هذا المستند"
+
+#. module: sa_invoice_first_stage
+#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#, python-format
+msgid "This Record Can't Be deleted"
+msgstr "عفواً لا يمكنك حذف هذا المستند"
+
+#. module: sa_invoice_first_stage
+#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#, python-format
+msgid "Timestamp"
+msgstr "الطابع الزمني"
+
+#. module: sa_invoice_first_stage
+#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#, python-format
+msgid "Total VAT"
+msgstr "إجمال  ضريبة القيمة المضافة"
+
+#. module: sa_invoice_first_stage
+#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#, python-format
+msgid "Total With Tax"
+msgstr "الإجمالي شامل ضريبة القيمة المضافة"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
+msgid "Vendor Bill"
+msgstr "فاتورة مورد"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
+msgid "Vendor Credit Note"
+msgstr "إشعار مورد دائن"
