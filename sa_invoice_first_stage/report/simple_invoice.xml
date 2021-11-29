@@ -9,11 +9,11 @@
                             <div style="margin-top: 3px;" id="informations" class="row mt32 mb32">
                                 <div class="col-auto col-3 mw-100 mb-2" >
                                     <strong>Invoice Number:</strong>
-                                    <p class="m-0" t-field="o.name"/>
+                                    <p class="m-0" t-field="o.number"/>
                                 </div>
                                 <div class="col-auto col-3 mw-100 mb-2" >
                                     <strong>Invoice Date:</strong>
-                                    <p class="m-0" t-field="o.invoice_date"/>
+                                    <p class="m-0" t-field="o.date_invoice"/>
                                 </div>
                             </div>
 
@@ -28,12 +28,10 @@
                                 </thead>
                                 <tbody class="invoice_tbody">
                                     <t t-set="current_subtotal" t-value="0"/>
-                                    <t t-set="lines" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
-
+                                    <t t-set="lines" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.name, -l.id), reverse=True)"/>
                                     <t t-foreach="lines" t-as="line">
                                         <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" />
                                         <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" />
-
                                         <tr>
                                             <td ><span t-field="line.name" t-options="{'widget': 'text'}"/></td>
                                             <td class="text-right"> <span t-field="line.quantity"/> </td>
@@ -83,7 +81,7 @@
 
         <report
             id="simple_invoice_report"
-            model="account.move"
+            model="account.invoice"
             string="Simplified Invoice"
             report_type="qweb-pdf"
             name="sa_invoice_first_stage.report_simple_invoice_document"

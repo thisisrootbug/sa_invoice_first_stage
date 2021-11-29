@@ -68,14 +68,14 @@ msgid "Cancelled Tax Invoice"
 msgstr "فاتورة ضريبية ملغية"
 
 #. module: sa_invoice_first_stage
-#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#: code:addons/sa_invoice_first_stage/models/account_invoice.py:0
 #, python-format
 msgid "Company / Vendor Name"
 msgstr "إسم المورد \\ الشركة"
 
 #. module: sa_invoice_first_stage
 #: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_bank_statement_line__company_vat
-#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_move__company_vat
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_invoice__company_vat
 #: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_payment__company_vat
 msgid "Company / Vendor Vat"
 msgstr "الرقم الضريبي للمورد \\ الشركة"
@@ -91,13 +91,13 @@ msgid "Draft Tax Invoice"
 msgstr "مسودة فاتورة ضريبية"
 
 #. module: sa_invoice_first_stage
-#: model:ir.model,name:sa_invoice_first_stage.model_account_move
+#: model:ir.model,name:sa_invoice_first_stage.model_account_invoice
 msgid "Journal Entry"
 msgstr "قيد اليومية"
 
 #. module: sa_invoice_first_stage
 #: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_bank_statement_line__qr_code_image
-#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_move__qr_code_image
+#: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_invoice__qr_code_image
 #: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_payment__qr_code_image
 msgid "QRCode Image"
 msgstr "رمز الاستجابة السريعة"
@@ -113,19 +113,19 @@ msgid "Simplified Invoice"
 msgstr "فاتورة مبسطة"
 
 #. module: sa_invoice_first_stage
-#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#: code:addons/sa_invoice_first_stage/models/account_invoice.py:0
 #, python-format
 msgid "This Record Can't Be Modified"
 msgstr "عفواً لا يمكنك تعديل هذا المستند"
 
 #. module: sa_invoice_first_stage
-#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#: code:addons/sa_invoice_first_stage/models/account_invoice.py:0
 #, python-format
 msgid "This Record Can't Be deleted"
 msgstr "عفواً لا يمكنك حذف هذا المستند"
 
 #. module: sa_invoice_first_stage
-#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#: code:addons/sa_invoice_first_stage/models/account_invoice.py:0
 #, python-format
 msgid "Timestamp"
 msgstr "الطابع الزمني"
@@ -136,13 +136,13 @@ msgid "Total Price"
 msgstr "الإجمالي (شامل الضريبة)"
 
 #. module: sa_invoice_first_stage
-#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#: code:addons/sa_invoice_first_stage/models/account_invoice.py:0
 #, python-format
 msgid "Total VAT"
 msgstr "إجمال  ضريبة القيمة المضافة"
 
 #. module: sa_invoice_first_stage
-#: code:addons/sa_invoice_first_stage/models/account_move.py:0
+#: code:addons/sa_invoice_first_stage/models/account_invoice.py:0
 #, python-format
 msgid "Total With Tax"
 msgstr "الإجمالي شامل ضريبة القيمة المضافة"

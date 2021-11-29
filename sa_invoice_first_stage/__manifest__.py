@@ -13,11 +13,10 @@
     -Disable invoice modification after the posted State
     -Change the views and reports design to meet the fist stage requirements.
     """,
-    'depends': [ 'account' ],
+    'depends': [ 'account','sale'],
     'data': [
         'report/report_invoice_document.xml',
         'report/simple_invoice.xml',
-        'views/account_move_inherit.xml',
     ],
     'images': [ 'static/description/banner.png', ],
     'installable': True,
