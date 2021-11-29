@@ -28,6 +28,31 @@ msgid "Tax Invoice First Stage"
 msgstr "الفاتورة الضريبية المرحلة الاولى"
 
 #. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "<span>Description</span>"
+msgstr "<span>الوصف</span>"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "<span>Quantity</span>"
+msgstr "<span>الكمية</span>"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "<span>Unit Price</span>"
+msgstr "<span>سعر الوحدة</span>"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>تاريخ إصدار الفاتورة:</strong>"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "<strong>Invoice Number:</strong>"
+msgstr "<strong>رقم الفاتورة:</strong>"
+
+#. module: sa_invoice_first_stage
 #: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
 msgid "Cancelled Tax Invoice"
 msgstr "فاتورة ضريبية ملغية"
@@ -43,7 +68,7 @@ msgstr "إسم المورد \\ الشركة"
 #: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_move__company_vat
 #: model:ir.model.fields,field_description:sa_invoice_first_stage.field_account_payment__company_vat
 msgid "Company / Vendor Vat"
-msgstr "إسم المورد \\ الشركة"
+msgstr "الرقم الضريبي للمورد \\ الشركة"
 
 #. module: sa_invoice_first_stage
 #: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
@@ -73,6 +98,11 @@ msgid "Tax Invoice"
 msgstr "فاتورة ضريبية"
 
 #. module: sa_invoice_first_stage
+#: model:ir.actions.report,name:sa_invoice_first_stage.simple_invoice_report
+msgid "Simplified Invoice"
+msgstr "فاتورة مبسطة"
+
+#. module: sa_invoice_first_stage
 #: code:addons/sa_invoice_first_stage/models/account_move.py:0
 #, python-format
 msgid "This Record Can't Be Modified"
@@ -89,6 +119,11 @@ msgstr "عفواً لا يمكنك حذف هذا المستند"
 #, python-format
 msgid "Timestamp"
 msgstr "الطابع الزمني"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "Total Price"
+msgstr "الإجمالي (شامل الضريبة)"
 
 #. module: sa_invoice_first_stage
 #: code:addons/sa_invoice_first_stage/models/account_move.py:0

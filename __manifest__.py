@@ -15,7 +15,8 @@
     """,
     'depends': [ 'account' ],
     'data': [
-        'report/account_invoice_report_template.xml',
+        'report/report_invoice_document.xml',
+        'report/simple_invoice.xml',
         'views/account_move_inherit.xml',
     ],
     'images': [ 'static/description/banner.png', ],
