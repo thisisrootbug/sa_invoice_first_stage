@@ -22,7 +22,7 @@
     'images': [ 'static/description/banner.png', ],
     'installable': True,
     'application': True,
-    'price': 100,
-    'currency': 'SAR',
+    'price': 29,
+    'currency': 'USD',
     'license': "LGPL-3",
 }
