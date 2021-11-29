@@ -53,6 +53,16 @@ msgid "<strong>Invoice Number:</strong>"
 msgstr "<strong>رقم الفاتورة:</strong>"
 
 #. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>الاجمالي شامل  الضريبة</strong>"
+
+#. module: sa_invoice_first_stage
+#: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_simple_invoice_document
+msgid "<strong>Tax Total</strong>"
+msgstr "<strong>إجمالي الضريبة</strong>"
+
+#. module: sa_invoice_first_stage
 #: model_terms:ir.ui.view,arch_db:sa_invoice_first_stage.report_invoice_document_inherit
 msgid "Cancelled Tax Invoice"
 msgstr "فاتورة ضريبية ملغية"

@@ -48,20 +48,33 @@
                                 </tbody>
                             </table>
 
-                            <div class="clearfix">
-                                <div id="total" class="row">
-                                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
-                                        <table class="table table-sm" style="page-break-inside: avoid;">
-                                            <t t-set="tax_totals" t-value="json.loads(o.tax_totals_json)"/>
-                                            <t t-call="account.document_tax_totals"/>
-                                        </table>
-                                    </div>
-                                </div>
+                    <div class="clearfix">
+                        <div id="total" class="row">
+                            <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                                <table class="table table-sm" style="page-break-inside: avoid;">
+                                    <tr>
+                                        <td><strong>Tax Total</strong></td>
+                                        <td class="text-right">
+                                            <span class="text-nowrap" t-field="o.amount_tax"/>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-black o_total">
+                                        <td><strong>Total</strong></td>
+                                        <td class="text-right">
+                                            <span class="text-nowrap" t-field="o.amount_total"/>
+                                        </td>
+                                    </tr>
+
+                                </table>
                             </div>
+                        </div>
+                    </div>
                             <br/>
-                            <div id="qr_code_image" class="text-center">
-                                <span style="width: 150px;height:150px;" t-field="o.qr_code_image" t-options="{'widget': 'image'}" />
-                            </div>
+                            <center>
+                                <div class="text-center" style="max-width:150px;max-height: 150px;">
+                                    <span style="width: 150px;height:150px;" t-field="o.qr_code_image" t-options="{'widget': 'image'}" />
+                                </div>
+                            </center>
                         </div>
                     </t>
                 </t>
@@ -78,5 +91,6 @@
             />
 
 
+        <!-- r00tbug -->
     </data>
 </odoo>
