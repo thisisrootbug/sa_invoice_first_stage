@@ -35,6 +35,7 @@ class Invoice(models.Model):
                 elif field_info.name == "amount_tax":
                     qr_info += _('Total VAT') + " : " + str(self[field_info.name]) + "\n"
         _logger.info(qr_info)
+        qr_info = base64.b64encode(qr_info)
         data = io.BytesIO()
         qrcode.make(qr_info, box_size=4).save(data, optimise=True, format='PNG')
         self.qr_code_image = base64.b64encode(data.getvalue()).decode()
