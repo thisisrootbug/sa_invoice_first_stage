@@ -2,6 +2,7 @@
     <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
         <xpath expr="//h2" position="replace">
             <div style="width:700px; height:110px;">
+                <h4 class="text-center" ><span>Tax Invoice</span></h4><br/>
                 <div style="width:100px;height:100px;float:left;">
                     <span t-if="o.state != 'draft'" t-field="o.qr_code_image" t-options='{"widget": "image"}' />
                 </div>

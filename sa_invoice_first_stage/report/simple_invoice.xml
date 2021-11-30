@@ -6,6 +6,7 @@
                 <t t-call="web.external_layout">
                     <t t-foreach="docs" t-as="o">
                         <div class="page">
+                            <h4 class="text-center" ><span>Simple Invoice</span></h4><br/>
                             <div style="margin-top: 3px;" id="informations" class="row mt32 mb32">
                                 <div class="col-auto col-3 mw-100 mb-2" >
                                     <strong>Invoice Number:</strong>
