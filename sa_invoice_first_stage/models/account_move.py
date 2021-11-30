@@ -14,28 +14,58 @@ class Invoice(models.Model):
     qr_code_image = fields.Binary("QRCode Image", compute='_generate_qr_code')
     company_vat = fields.Char(string='Company / Vendor Vat',related="company_id.vat",store=True)
 
-
     def _generate_qr_code(self):
         qr_info = ''
-        required_fields = {'Company':'company_id', 'Company Vat':'company_vat', 'Last Updated on':'write_date', 'Total':'amount_total', 'Tax':'amount_tax'}
-        required_fields_attributes = self.env['ir.model.fields'].search([('model_id.model','=','account.move'), ('name','in',list(required_fields.values()))])
+        required_fields = ['company_id', 'company_vat', 'write_date', 'amount_total', 'amount_tax']
+        required_fields_attributes = self.env['ir.model.fields'].search([('model_id.model','=','account.move'), ('name','in',required_fields)])
         data = {}
         for field_info in required_fields_attributes:
-            if field_info.ttype == 'many2one':
-                if field_info.name == "company_id":
-                    qr_info += _('Company / Vendor Name') + " : " + self[field_info.name].display_name + "\n"
-                    continue
+            if field_info.name == "company_id":
+                tag = 1
+                value = self[field_info.name].display_name
+                if value:
+                    qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
                 else:
-                    qr_info += f"{field_info.field_description} : {self[field_info.name].display_name} \n"
-            else:
-                if field_info.name == "write_date":
-                    qr_info += _('Timestamp') +" : " + self[field_info.name].strftime('%Y-%M-%d %H:%m:%S') + "\n"
-                elif field_info.name == "amount_total":
-                    qr_info += _('Total With Tax') + " : " + str(self[field_info.name]) + "\n"
-                elif field_info.name == "amount_tax":
-                    qr_info += _('Total VAT') + " : " + str(self[field_info.name]) + "\n"
-        qr_info = base64.b64encode(qr_info)
-        _logger.info(qr_info)
+                    _logger.warning(field_info.name+" has no value")
+                break
+        for field_info in required_fields_attributes:
+            if field_info.name == "company_vat":
+                tag = 2
+                value = self[field_info.name]
+                if value:
+                    qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
+                else:
+                    _logger.warning(field_info.name+" has no value")
+                break
+        for field_info in required_fields_attributes:
+            if field_info.name == "write_date":
+                tag = 3
+                value = self[field_info.name].strftime("%Y-%M-%dT%H:%m:%SZ")
+                if value:
+                    qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
+                else:
+                    _logger.warning(field_info.name+" has no value")
+                break
+        for field_info in required_fields_attributes:
+            if field_info.name == "amount_total":
+                tag = 4
+                value = self[field_info.name]
+                if value:
+                    qr_info += format(tag,'02X') + format(len(str(value).encode('utf-8')),'02X') + format(value,'0.2f').encode('utf-8').hex()
+                else:
+                    _logger.warning(field_info.name+" has no value")
+                break
+        for field_info in required_fields_attributes:
+            if field_info.name == "amount_tax":
+                tag = 5
+                value = self[field_info.name]
+                if value:
+                    qr_info += format(tag,'02X') + format(len(str(value).encode('utf-8')),'02X') + format(value,'0.2f').encode('utf-8').hex()
+                else:
+                    _logger.warning(field_info.name+" has no value")
+                break
+        qr_info = base64.b64encode(bytearray.fromhex(qr_info))
+        _logger.debug(qr_info)
         data = io.BytesIO()
         qrcode.make(qr_info, box_size=4).save(data, optimise=True, format='PNG')
         self.qr_code_image = base64.b64encode(data.getvalue()).decode()
