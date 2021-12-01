@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Tax Invoice First Stage',
+    'name': 'ZATCA Tax Invoice First Stage',
     'version': '1.0',
     'installed_version': '1.0',
     'category': 'Accounting',
