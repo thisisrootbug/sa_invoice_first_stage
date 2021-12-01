@@ -28,7 +28,7 @@ class Invoice(models.Model):
                     if value:
                         qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
                     else:
-                        _logger.warning(field_info.name+" has no value")
+                        _logger.error(field_info.name+" has no value")
                     break
             for field_info in required_fields_attributes:
                 if field_info.name == "company_vat":
@@ -37,16 +37,16 @@ class Invoice(models.Model):
                     if value:
                         qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
                     else:
-                        _logger.warning(field_info.name+" has no value")
+                        _logger.error(field_info.name+" has no value")
                     break
             for field_info in required_fields_attributes:
                 if field_info.name == "write_date":
                     tag = 3
-                    value = record[field_info.name].strftime("%Y-%M-%dT%H:%m:%SZ")
+                    value = record[field_info.name].strftime("%Y-%M-%dT%H:%m:%S+03:00")
                     if value:
                         qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
                     else:
-                        _logger.warning(field_info.name+" has no value")
+                        _logger.error(field_info.name+" has no value")
                     break
             for field_info in required_fields_attributes:
                 if field_info.name == "amount_total":
@@ -55,7 +55,7 @@ class Invoice(models.Model):
                     if value:
                         qr_info += format(tag,'02X') + format(len(str(value).encode('utf-8')),'02X') + format(value,'0.2f').encode('utf-8').hex()
                     else:
-                        _logger.warning(field_info.name+" has no value")
+                        _logger.error(field_info.name+" has no value")
                     break
             for field_info in required_fields_attributes:
                 if field_info.name == "amount_tax":
@@ -64,7 +64,7 @@ class Invoice(models.Model):
                     if value:
                         qr_info += format(tag,'02X') + format(len(str(value).encode('utf-8')),'02X') + format(value,'0.2f').encode('utf-8').hex()
                     else:
-                        _logger.warning(field_info.name+" has no value")
+                        _logger.error(field_info.name+" has no value")
                     break
             qr_info = base64.b64encode(bytearray.fromhex(qr_info))
             _logger.debug(qr_info)
