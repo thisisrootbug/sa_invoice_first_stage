@@ -27,7 +27,7 @@ class Invoice(models.Model):
                 if value:
                     qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
                 else:
-                    _logger.warning(field_info.name+" has no value")
+                    _logger.error(field_info.name+" has no value")
                 break
         for field_info in required_fields_attributes:
             if field_info.name == "company_vat":
@@ -36,16 +36,16 @@ class Invoice(models.Model):
                 if value:
                     qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
                 else:
-                    _logger.warning(field_info.name+" has no value")
+                    _logger.error(field_info.name+" has no value")
                 break
         for field_info in required_fields_attributes:
             if field_info.name == "write_date":
                 tag = 3
-                value = self[field_info.name].strftime("%Y-%M-%dT%H:%m:%SZ")
+                value = self[field_info.name].strftime("%Y-%M-%dT%H:%m:%S+03:00")
                 if value:
                     qr_info += format(tag,'02X') + format(len(value.encode('utf-8')),'02X') + value.encode('utf-8').hex()
                 else:
-                    _logger.warning(field_info.name+" has no value")
+                    _logger.error(field_info.name+" has no value")
                 break
         for field_info in required_fields_attributes:
             if field_info.name == "amount_total":
@@ -54,7 +54,7 @@ class Invoice(models.Model):
                 if value:
                     qr_info += format(tag,'02X') + format(len(str(value).encode('utf-8')),'02X') + format(value,'0.2f').encode('utf-8').hex()
                 else:
-                    _logger.warning(field_info.name+" has no value")
+                    _logger.error(field_info.name+" has no value")
                 break
         for field_info in required_fields_attributes:
             if field_info.name == "amount_tax":
@@ -63,7 +63,7 @@ class Invoice(models.Model):
                 if value:
                     qr_info += format(tag,'02X') + format(len(str(value).encode('utf-8')),'02X') + format(value,'0.2f').encode('utf-8').hex()
                 else:
-                    _logger.warning(field_info.name+" has no value")
+                    _logger.error(field_info.name+" has no value")
                 break
         qr_info = base64.b64encode(bytearray.fromhex(qr_info))
         _logger.debug(qr_info)
@@ -80,7 +80,7 @@ class Invoice(models.Model):
         if vals == {}:
             return
         if self.state == "posted":
-            if ('access_token' not in str(vals) and 'invoice_payment_ref' not in str(vals) and "name" not in str(vals) and "message_main_attachment_id" not in str(vals) and "tax_country_id" not in str(vals)):
+            if ('sequence_prefix' not in str(vals) and 'access_token' not in str(vals) and 'invoice_payment_ref' not in str(vals) and "name" not in str(vals) and "message_main_attachment_id" not in str(vals) and "tax_country_id" not in str(vals)):
                 _logger.info("data : ")
                 _logger.info(vals)
                 raise UserError(_("This Record Can't Be Modified"))
