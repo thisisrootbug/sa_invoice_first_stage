@@ -80,7 +80,7 @@ class Invoice(models.Model):
         if vals == {}:
             return
         if self.state == "posted":
-            if ('sequence_prefix' not in str(vals) and 'access_token' not in str(vals) and 'invoice_payment_ref' not in str(vals) and "name" not in str(vals) and "message_main_attachment_id" not in str(vals) and "tax_country_id" not in str(vals)):
+            if ('l10n_sa_confirmation_datetime' not in str(vals) and 'sequence_prefix' not in str(vals) and 'access_token' not in str(vals) and 'invoice_payment_ref' not in str(vals) and "name" not in str(vals) and "message_main_attachment_id" not in str(vals) and "tax_country_id" not in str(vals)):
                 _logger.info("data : ")
                 _logger.info(vals)
                 raise UserError(_("This Record Can't Be Modified"))
