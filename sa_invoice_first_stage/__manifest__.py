@@ -4,9 +4,9 @@
     'version': '1.0',
     'installed_version': '1.0',
     'category': 'Accounting',
-    'author': 'Alhaidab-ITIS',
+    'author': 'Hasabalrasool',
     'summary': 'Meet the first staget requirement for the Saudi Arabia Tax Invoice and Simple Invoice',
-    'website': 'https://www.alhaidab.dolibarr.sd',
+    'website': 'https://www.linkedin.com/in/r00tbug',
     'description': """
     -Add an automaticly generated QRCode in invoice form views and reports with the required information.
     -Disable invoice delete after the posted State
